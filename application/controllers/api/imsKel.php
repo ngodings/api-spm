@@ -79,6 +79,7 @@ class imsKel extends REST_Controller {
 
 		
 		$data = [
+				'IMS_all' => $this->Peta->get_count($id, 'IMS'),
 				'IMS_aktif' => $this->Peta-> get_count_kel($id, 'Dalam Perawatan', 'IMS'),
 				'IMS_sembuh' => $this->Peta-> get_count_kel($id, 'Sembuh', 'IMS'),
 				'IMS_die' => $this->Peta-> get_count_kel($id, 'Meninggal', 'IMS'),

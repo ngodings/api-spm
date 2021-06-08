@@ -79,6 +79,7 @@ class covidKel extends REST_Controller {
 
 		
 		$data = [
+				'covid_all' => $this->Peta->get_count($id, 'COVID-19'),
 				'covid_aktif' => $this->Peta-> get_count_kel($id, 'Dalam Perawatan', 'COVID-19'),
 				'covid_sembuh' => $this->Peta-> get_count_kel($id, 'Sembuh', 'COVID-19'),
 				'covid_die' => $this->Peta-> get_count_kel($id, 'Meninggal', 'COVID-19'),

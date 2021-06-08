@@ -79,6 +79,7 @@ class tbcKel extends REST_Controller {
 
 		
 		$data = [
+				'tbc_all' => $this->Peta->get_count($id, 'TBC'),
 				'tbc_aktif' => $this->Peta-> get_count_kel($id, 'Dalam Perawatan', 'TBC'),
 				'tbc_sembuh' => $this->Peta-> get_count_kel($id, 'Sembuh', 'TBC'),
 				'tbc_die' => $this->Peta-> get_count_kel($id, 'Meninggal', 'TBC'),

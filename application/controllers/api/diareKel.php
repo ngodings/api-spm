@@ -79,6 +79,7 @@ class diareKel extends REST_Controller {
 
 		
 		$data = [
+				'Diare_all' => $this->Peta->get_count($id, 'Diare'),
 				'Diare_aktif' => $this->Peta-> get_count_kel($id, 'Dalam Perawatan', 'Diare'),
 				'Diare_sembuh' => $this->Peta-> get_count_kel($id, 'Sembuh', 'Diare'),
 				'Diare_die' => $this->Peta-> get_count_kel($id, 'Meninggal', 'Diare'),

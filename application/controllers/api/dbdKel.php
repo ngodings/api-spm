@@ -79,6 +79,7 @@ class dbdKel extends REST_Controller {
 
 		
 		$data = [
+				'DBD_all' => $this->Peta->get_count($id, 'DBD'),
 				'DBD_aktif' => $this->Peta->get_count_kel($id, 'Dalam Perawatan', 'DBD'),
 				'DBD_sembuh' => $this->Peta->get_count_kel($id, 'Sembuh', 'DBD'),
 				'DBD_die' => $this->Peta->get_count_kel($id, 'Meninggal', 'DBD'),

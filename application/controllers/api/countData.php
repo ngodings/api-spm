@@ -76,22 +76,27 @@ class countData extends REST_Controller {
             // Usually a model is to be used for this.
 
             $data = [
+				'covid_all' => $this->Peta-> get_count_kec($id, 'COVID-19'),
 				'covid_aktif' => $this->Peta-> get_count_all($id, 'Dalam Perawatan', 'COVID-19'),
 				'covid_sembuh' => $this->Peta-> get_count_all($id, 'Sembuh', 'COVID-19'),
 				'covid_die' => $this->Peta-> get_count_all($id, 'Meninggal', 'COVID-19'),
 	
+				'tbc_all' => $this->Peta-> get_count_kec($id, 'TBC'),
 				'tbc_aktif' => $this->Peta-> get_count_all($id, 'Dalam Perawatan', 'TBC'),
 				'tbc_sembuh' => $this->Peta-> get_count_all($id, 'Sembuh', 'TBC'),
 				'tbc_die' => $this->Peta-> get_count_all($id, 'Meninggal', 'TBC'),
 	
+				'ims_all' => $this->Peta-> get_count_kec($id, 'IMS'),
 				'ims_aktif' => $this->Peta-> get_count_all($id, 'Dalam Perawatan', 'IMS'),
 				'ims_sembuh' => $this->Peta-> get_count_all($id, 'Sembuh', 'IMS'),
 				'ims_die' => $this->Peta-> get_count_all($id, 'Meninggal', 'IMS'),
 	
+				'Diare_all' => $this->Peta-> get_count_kec($id, 'Diare'),
 				'diare_aktif' => $this->Peta-> get_count_all($id, 'Dalam Perawatan', 'Diare'),
 				'diare_sembuh' => $this->Peta-> get_count_all($id, 'Sembuh', 'Diare'),
 				'diare_die' => $this->Peta-> get_count_all($id, 'Meninggal', 'Diare'),
 	
+				'dbd_all' => $this->Peta-> get_count_kec($id, 'DBD'),
 				'dbd_aktif' => $this->Peta-> get_count_all($id, 'Dalam Perawatan', 'DBD'),
 				'dbd_sembuh' => $this->Peta-> get_count_all($id, 'Sembuh', 'DBD'),
 				'dbd_die' => $this->Peta-> get_count_all($id, 'Meninggal', 'DBD'),
