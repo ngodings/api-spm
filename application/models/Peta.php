@@ -124,4 +124,86 @@ class Peta extends CI_Model
 
 		return $this->db->count_all_results('rekam_medik');
 	}
+
+	public function penyakit_kec_tahun ($id_kec, $status, $tahun1, $tahun2, $penyakit){
+		//$tgl=date('Y-m-d');
+		
+		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
+		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
+		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
+		$this->db->join('kelurahan', 'pasien.id_kel = kelurahan.id_kel');
+		$this->db->where('penyakit.nama_penyakit', $penyakit);
+		$this->db->where('rekam_medik.status', $status);
+		$this->db->where('rekam_medik.tanggal_terinfeksi >=', $tahun1);
+		$this->db->where('rekam_medik.tanggal_terinfeksi <=', $tahun2);
+		$this->db->where('kecamatan.id_kec', $id_kec);
+
+		return $this->db->count_all_results('rekam_medik');
+	}
+	public function penyakit_kec($id_kec, $tahun1, $tahun2, $penyakit){
+		//$tgl=date('Y-m-d');
+		
+		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
+		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
+		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
+		$this->db->join('kelurahan', 'pasien.id_kel = kelurahan.id_kel');
+		$this->db->where('penyakit.nama_penyakit', $penyakit);
+		$this->db->where('rekam_medik.tanggal_terinfeksi >=', $tahun1);
+		$this->db->where('rekam_medik.tanggal_terinfeksi <=', $tahun2);
+		$this->db->where('kecamatan.id_kec', $id_kec);
+
+		return $this->db->count_all_results('rekam_medik');
+	}
+	public function penyakit_kec1($id_kec, $tahun2, $penyakit){
+		//$tgl=date('Y-m-d');
+		
+		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
+		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
+		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
+		$this->db->join('kelurahan', 'pasien.id_kel = kelurahan.id_kel');
+		$this->db->where('penyakit.nama_penyakit', $penyakit);
+		$this->db->where('rekam_medik.tanggal_terinfeksi <=', $tahun2);
+		$this->db->where('kecamatan.id_kec', $id_kec);
+
+		return $this->db->count_all_results('rekam_medik');
+	}
+	public function penyakit_kec3($id_kec, $tahun1, $penyakit){
+		//$tgl=date('Y-m-d');
+		
+		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
+		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
+		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
+		$this->db->join('kelurahan', 'pasien.id_kel = kelurahan.id_kel');
+		$this->db->where('penyakit.nama_penyakit', $penyakit);
+		$this->db->where('rekam_medik.tanggal_terinfeksi >=', $tahun1);
+		$this->db->where('kecamatan.id_kec', $id_kec);
+
+		return $this->db->count_all_results('rekam_medik');
+	}
+	public function penyakit_kec2($id_kec,  $tahun2){
+		//$tgl=date('Y-m-d');
+		
+		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
+		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
+		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
+		$this->db->join('kelurahan', 'pasien.id_kel = kelurahan.id_kel');
+		$this->db->where('rekam_medik.tanggal_terinfeksi <=', $tahun2);
+		$this->db->where('kecamatan.id_kec', $id_kec);
+
+		return $this->db->count_all_results('rekam_medik');
+	}
+	public function penyakit_kec4($id_kec, $tahun1){
+		//$tgl=date('Y-m-d');
+		
+		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
+		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
+		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
+		$this->db->join('kelurahan', 'pasien.id_kel = kelurahan.id_kel');
+		$this->db->where('rekam_medik.tanggal_terinfeksi >=', $tahun1);
+		$this->db->where('kecamatan.id_kec', $id_kec);
+
+		return $this->db->count_all_results('rekam_medik');
+	}
+
+	
 }
