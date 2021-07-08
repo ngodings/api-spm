@@ -107,8 +107,6 @@ class Peta extends CI_Model
 		return $this->db->count_all_results('rekam_medik');
 	}
 	public function penyakit_kel_usia ($id_kel, $status, $jk, $tahun1, $tahun2, $penyakit){
-		$tgl=date('Y-m-d');
-		$tgl1= '2015-01-01';
 		$this->db->join('penyakit', 'rekam_medik.id_penyakit = penyakit.id_penyakit');
 		$this->db->join('pasien','rekam_medik.id_pasien = pasien.id_pasien');
 		$this->db->join('kecamatan', 'pasien.id_kec = kecamatan.id_kec');
@@ -118,8 +116,6 @@ class Peta extends CI_Model
 		$this->db->where('pasien.jk', $jk);
 		$this->db->where('pasien.tanggal_lahir >=', $tahun1);
 		$this->db->where('pasien.tanggal_lahir <=', $tahun2);
-		$this->db->where('rekam_medik.tanggal_terinfeksi >=', $tgl1);
-		$this->db->where('rekam_medik.tanggal_terinfeksi <=', $tgl);
 		$this->db->where('kelurahan.id_kel', $id_kel);
 
 		return $this->db->count_all_results('rekam_medik');
